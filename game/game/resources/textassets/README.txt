@@ -1,0 +1,2 @@
+Format of every asset goes as follows (for every different kind of animation state you need to load in, press enter for a new line):
+[garbage]NameofState: [(path to file relative to game project)imgName] [garbage]Row: [row#] [garbage]Col: [col#]

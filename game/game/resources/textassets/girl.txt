@@ -1,0 +1,4 @@
+Idle_right: resources/sprites/girl/girl_idle_right.png Row: 1 Col: 4
+Idle_left: resources/sprites/girl/girl_idle_left.png Row: 1 Col: 4
+Running_right: resources/sprites/girl/girl_running_right.png Row: 1 Col: 5
+Running_left: resources/sprites/girl/girl_running_left.png Row: 1 Col: 5

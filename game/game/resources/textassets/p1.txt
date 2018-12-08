@@ -1,0 +1,5 @@
+Idle: resources/sprites/p1/idlep1.png Row: 4 Col: 1
+Moving: movingTony.png Row: 5 Col: 2
+Jumping: jumpingTony.png Row: 6 Col: 3
+Falling: fallingTOny.png Row: 1 Col: 2
+Hit: hitTony.png Row: 3 Col: 2

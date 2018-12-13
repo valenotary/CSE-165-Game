@@ -1,3 +1,4 @@
-﻿  gamewindow.cpp
-c:\users\tony\documents\opengl\cse-165 final\test-proj\game\game\gamewindow.cpp(16): warning C4305: 'argument': truncation from 'double' to 'float'
-  game.vcxproj -> C:\Users\Tony\Documents\OpenGL\CSE-165 Final\test-proj\game\Debug\game.exe
+﻿  menu.cpp
+c:\users\tony\documents\opengl\cse-165 final\test-proj\cse-165-game\game\game\menu.cpp(21): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\tony\documents\opengl\cse-165 final\test-proj\cse-165-game\game\game\menu.cpp(23): warning C4305: 'argument': truncation from 'double' to 'float'
+  game.vcxproj -> C:\Users\Tony\Documents\OpenGL\CSE-165 Final\test-proj\CSE-165-Game\game\Debug\game.exe

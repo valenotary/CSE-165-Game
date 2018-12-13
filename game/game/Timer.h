@@ -22,6 +22,8 @@ public:
 
 	void stop();
 
+	int getRate();
+
 	~Timer();
 
 	virtual void action() = 0;

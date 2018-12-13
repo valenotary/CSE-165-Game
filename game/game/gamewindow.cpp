@@ -1,22 +1,18 @@
 #include "gamewindow.h"
 
-#define STATE_IDLE_RIGHT 0
-#define STATE_IDLE_LEFT 1
-#define STATE_RUNNING_RIGHT 2
-#define STATE_RUNNING_LEFT 3
-
-
 gamewindow::gamewindow(int argc, char ** argv): glutwindow(argc, argv) {
 	//initialize the objects in here (maybe even encapsulate it all into a game class and just instantiate the game object in here)
 	//idleAnimation = true;
 	//p1 = new AnimatedRect("resources/sprites/p1/idlep1.png", 1, 4, 100, 0, 0, 0.5, 0.5);
 	//girl_idle = new AnimatedRect("resources/sprites/girl/girl_idle.png", 1, 4, 200, 0.5, 0.5, 0.1, 0.2);
 	//girl_running = new AnimatedRect("resources/sprites/girl/girl_running.png", 1, 5, 200, 0.5, 0.5, 0.1, 0.2);
-	bg = new TexRect("resources/textures/bg.png", -1, 1, 2, 2);
-	girl = new Character("resources/textassets/girl.txt", 0, 0, 1, 0.1, 0.2);
-
-
+	//bg = new TexRect("resources/textures/bg.png", -1, 1, 2, 2);
+	//girl = new Character("resources/textassets/girl.txt", 0, -0.5, 0.2, 0.1, 0.2);
+	//test = new AxisShooter("resources/textures/TAMY'S_SPACESHIP.png", -0.1, 0.5, 0.4, 0.2, 0);
 	//60 FPS; can check the state 60x per second
+
+	game = new Game();
+
 	timerSetInterval(1000 / 60);
 	timerStart();
 }
@@ -25,8 +21,10 @@ void gamewindow::draw() {
 	//p1->draw(0.15);
 	//girl_idle->draw(0.15);
 	//girl_running->draw(0.15);
-	girl->draw();
-	bg->draw(0);
+	//bg->draw(0.15);
+	//girl->draw();
+	//test->draw(0.2);
+	game->draw();
 }
 
 
@@ -36,19 +34,35 @@ void gamewindow::keyDown(unsigned char key, float x, float y) {
 		exit(0);
 	}
 
-	if (key == 'a') {
-		girl->updateState(STATE_RUNNING_LEFT);
-		if (!girl->leftORright()) {
-			std::cout << "Running Left!" << std::endl;
-		}
-	}
+	game->handleDownInputs(key);
 
-	if (key == 'd') {
-		girl->updateState(STATE_RUNNING_RIGHT);
-		if (girl->leftORright()) {
-			std::cout << "Running Right!" << std::endl;
-		}
-	}
+	//if (key == 'a') {
+	//	keystates[key] = true;
+	//	//girl->updateState(MOVING_LEFT);
+	//	if (keystates[key] == true) {
+	//		girl->updateState(MOVING_LEFT);
+	//	}
+	//}
+
+	//if (key == 'd') {
+	//	keystates[key] = true;
+	//	//girl->updateState(MOVING_RIGHT);
+	//	if (keystates[key] == true) {
+	//		girl->updateState(MOVING_RIGHT);
+	//	}
+
+	//}
+	//if (key == ' ') {
+	//	keystates[key] = true;
+	//	if (keystates[key] == true) {
+	//		if (girl->leftORright()) {
+	//			girl->updateState(JUMPING_RIGHT);
+	//		}
+	//		else {
+	//			girl->updateState(JUMPING_LEFT);
+	//		}
+	//	}
+	//}
 }
 
 void gamewindow::keyUp(unsigned char key, float x, float y) {
@@ -57,28 +71,39 @@ void gamewindow::keyUp(unsigned char key, float x, float y) {
 	//	std::cout << girl->getX() << std::endl;
 	//}
 
-	if (key != NULL) {
-		if (girl->leftORright()) {
-			girl->updateState(STATE_IDLE_RIGHT);
-		} else {
-			girl->updateState(STATE_IDLE_LEFT);
-		}
-		//if ((girl->leftORright()) == true) {
-		//	girl->updateState(STATE_IDLE_RIGHT);
-		//	std::cout << "Idling facing right now..." << std::endl;
-		//}
-		//else if ((girl->leftORright()) == true) {
-		//	girl->updateState(STATE_IDLE_LEFT);
-		//	if ((girl->leftORright()) == true) {
-		//		std::cout << "Idling facing left now..." << std::endl;
-		//	}
-		//}
-	}
+	//if (key == 'a') {
+	//	keystates[key] = false;
+	//}
+	//if (key == 'd') {
+	//	keystates[key] = false;
+	//}
+	//if (key == ' ') {
+	//	keystates[key] = false;
+	//}
+
+
+	//if (key != NULL) {
+	//	if (girl->leftORright()) {
+	//		girl->updateState(IDLE_RIGHT);
+	//	} else {
+	//		girl->updateState(IDLE_LEFT);
+	//	}
+	//	//if ((girl->leftORright()) == true) {
+	//	//	girl->updateState(STATE_IDLE_RIGHT);
+	//	//	std::cout << "Idling facing right now..." << std::endl;
+	//	//}
+	//	//else if ((girl->leftORright()) == true) {
+	//	//	girl->updateState(STATE_IDLE_LEFT);
+	//	//	if ((girl->leftORright()) == true) {
+	//	//		std::cout << "Idling facing left now..." << std::endl;
+	//	//	}
+	//	//}
+	//}
 
 }
 
 void gamewindow::leftMouseDown(float x, float y) {
-
+	game->leftMouseInputs(x, y);
 }
 
 void gamewindow::rightMouseDown(float x, float y) {
@@ -102,8 +127,10 @@ void gamewindow::timer() {
 	//check which animation to draw by iterating through
 	//which bool state is true and PAUSING the rest
 	
-	girl->cBehavior();
+	//girl->cBehavior();
+	//test->AxisBehavior(girl->getX(), girl->getY());
 
+	game->checkBehaviors();
 
 	/*if (idleAnimation) {
 		girl_running->cut();
@@ -124,8 +151,10 @@ void gamewindow::timer() {
 gamewindow::~gamewindow() {
 	//delete all of the objects in here (refer to above suggestion)
 	//delete p1;
-	delete girl;
-	delete bg;
+	//delete girl;
+	//delete bg;
+	//delete test;
+	delete game;
 }
 
 

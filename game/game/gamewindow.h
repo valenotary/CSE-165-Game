@@ -5,14 +5,18 @@
 #include "glutwindow.h"
 #include "AnimatedRect.h"
 #include "character.h"
+#include "axis_shooters.h"
+#include "game.h"
 
 class gamewindow: public glutwindow {
 	//prepare all objects that I'll want to call in here
 	//AnimatedRect *p1;
 	//AnimatedRect *girl_idle;
 	//AnimatedRect *girl_running;
-	TexRect* bg;
-	Character* girl;
+	//TexRect* bg;
+	//Character* girl;
+	//AxisShooter* test;
+	Game* game;
 
 public:
 	gamewindow(int argc, char** argv);

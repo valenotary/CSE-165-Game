@@ -26,6 +26,10 @@ void Timer::setRate(int millis) {
 	interval = millis;
 }
 
+int Timer::getRate() {
+	return interval;
+}
+
 void Timer::start() {
 	running = true;
 	timerThread = std::thread(repeat, this);

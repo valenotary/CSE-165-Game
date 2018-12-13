@@ -116,10 +116,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedRect.cpp" />
+    <ClCompile Include="axis_shooters.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="CustomFonts.cpp" />
     <ClCompile Include="dataloader.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="gamewindow.cpp" />
     <ClCompile Include="glutwindow.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TexRect.cpp" />
@@ -127,10 +131,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedRect.h" />
+    <ClInclude Include="axis_shooters.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="CustomFonts.h" />
     <ClInclude Include="dataloader.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="gamewindow.h" />
     <ClInclude Include="glutwindow.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="TexRect.h" />
     <ClInclude Include="Timer.h" />

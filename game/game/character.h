@@ -27,10 +27,12 @@ class Character {
 	
 	std::string name;
 	float x, y, z, w, h;
+	float initVel, vel;
 	//bool left, right;
-	bool isRight;
+	bool isRight, isMoving, isJumping, isFalling, isHit, inAir, onLand;
 	//int curr_state;
 	//std::vector<std::string> string_states;
+	int curr_state, action;
 	std::vector<bool> states;
 	animation animations;
 	Character();
@@ -50,6 +52,8 @@ public:
 	
 	void idle();
 	void moveX();
+	void jump();
+	void fall();
 
 	std::string getName(std::string) const;
 	float getX() const;
@@ -59,6 +63,7 @@ public:
 	float getH() const;
 
 	bool leftORright();
+	bool onGround();
 
 	void draw();
 

@@ -26,7 +26,7 @@ TexRect::TexRect(const char* filename, float x = 0, float y = 0, float w = 0.5, 
 }
 
 
-void TexRect::draw(float z) const {
+void TexRect::draw(float z) {
 	glBindTexture(GL_TEXTURE_2D, texture_id);
 	glEnable(GL_TEXTURE_2D);
 

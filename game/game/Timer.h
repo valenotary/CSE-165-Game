@@ -9,11 +9,11 @@
 
 class Timer {
 	int interval;
-	bool running;
 	std::thread timerThread;
 
 	static void repeat(Timer*);
 public:
+	bool running;
 	Timer();
 
 	void start();

@@ -3,15 +3,29 @@
 #define GAME_H
 
 #include <gl/freeglut.h>
+#include <string>
+#include <sstream>
 
 #include "character.h"
 #include "axis_shooters.h"
 #include "menu.h"
 
-class Game {
-	bool isMenu, gameRunning;
+void drawString(void *, const char *, float, float, float);
 
-	Menu* menu;
+struct counter: protected Timer {
+	bool timerStillRunning;
+	int seconds;
+	std::stringstream str;
+	std::string seconds_string;
+	counter();
+	void action();;
+};
+
+class Game {
+	bool gameRunning, gameOver;
+	std::string final_string;
+	int score;
+	counter meh;
 	Character* girl;
 	TexRect* bg;
 	AxisShooter* shooter;

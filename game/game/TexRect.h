@@ -14,7 +14,7 @@ protected:
 public:
 	TexRect(const char*, float, float, float, float);
 
-	void draw(float z) const;
+	void draw(float z);
 };
 
 #endif /*TEXRECT_H*/

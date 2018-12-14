@@ -29,7 +29,7 @@ class Character {
 	float x, y, z, w, h;
 	float initVel, vel;
 	//bool left, right;
-	bool isRight, isMoving, isJumping, isFalling, isHit, inAir, onLand;
+	bool isRight;
 	//int curr_state;
 	//std::vector<std::string> string_states;
 	int curr_state, action;
@@ -47,14 +47,12 @@ public:
 	void setH(float);
 
 	void updateState(int);
-
 	void cBehavior();
 	
 	void idle();
 	void moveX();
-	void jump();
-	void fall();
-
+	bool contains(float, float);
+	
 	std::string getName(std::string) const;
 	float getX() const;
 	float getY() const;
@@ -63,7 +61,6 @@ public:
 	float getH() const;
 
 	bool leftORright();
-	bool onGround();
 
 	void draw();
 
